@@ -15,3 +15,9 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'AZ204Connection'
+    appName: 'myFirstAzureWebApp20200621132456'
+    package: $(System.DefaultWorkingDirectory)/**/*.zip
